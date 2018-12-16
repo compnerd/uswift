@@ -13,6 +13,7 @@ set(SwiftCore_SOURCES
     ${CMAKE_SOURCE_DIR}/Source/Core/Equatable.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Int8.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Integers.swift
+    ${CMAKE_SOURCE_DIR}/Source/Core/Never.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Policy.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Swift.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/UInt8.swift)

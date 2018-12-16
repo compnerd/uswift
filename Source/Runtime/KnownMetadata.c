@@ -19,6 +19,9 @@ SWIFT_RUNTIME_ABI
 struct ValueWitnessTable $sBi8_WV;
 
 SWIFT_RUNTIME_ABI
+struct ValueWitnessTable $sytWV;
+
+SWIFT_RUNTIME_ABI
 struct TypeMetadata $sBi1_N;
 
 SWIFT_RUNTIME_ABI
