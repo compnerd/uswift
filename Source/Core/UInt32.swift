@@ -15,3 +15,10 @@ extension UInt32 : _ExpressibleByBuiltinIntegerLiteral {
 extension UInt32 : ExpressibleByIntegerLiteral {
 }
 
+extension UInt32 : Equatable {
+  @_transparent
+  public static func == (lhs: UInt32, rhs: UInt32) -> Bool {
+    return Bool(Builtin.cmp_eq_Int32(lhs._value, rhs._value))
+  }
+}
+

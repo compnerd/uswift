@@ -15,3 +15,10 @@ extension Int32 : _ExpressibleByBuiltinIntegerLiteral {
 extension Int32 : ExpressibleByIntegerLiteral {
 }
 
+extension Int32 : Equatable {
+  @_transparent
+  public static func == (lhs: Int32, rhs: Int32) -> Bool {
+    return Bool(Builtin.cmp_eq_Int32(lhs._value, rhs._value))
+  }
+}
+

@@ -15,3 +15,10 @@ extension UInt8 : _ExpressibleByBuiltinIntegerLiteral {
 extension UInt8 : ExpressibleByIntegerLiteral {
 }
 
+extension UInt8 : Equatable {
+  @_transparent
+  public static func == (lhs: UInt8, rhs: UInt8) -> Bool {
+    return Bool(Builtin.cmp_eq_Int8(lhs._value, rhs._value))
+  }
+}
+
