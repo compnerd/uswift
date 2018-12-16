@@ -1,0 +1,26 @@
+
+#if defined(__ELF__)
+#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
+#elif defined(__MACH__)
+#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
+#elif defined(__WASM__)
+#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
+#else
+#define SWIFT_RUNTIME_ABI __declspec(dllexport)
+#endif
+
+struct ValueWitnessTable {
+};
+
+struct TypeMetadata {
+};
+
+SWIFT_RUNTIME_ABI
+struct ValueWitnessTable $sBi8_WV;
+
+SWIFT_RUNTIME_ABI
+struct TypeMetadata $sBi1_N;
+
+SWIFT_RUNTIME_ABI
+struct TypeMetadata $sBi8_N;
+
