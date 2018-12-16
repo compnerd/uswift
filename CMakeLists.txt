@@ -11,12 +11,14 @@ set(SwiftCore_SOURCES
     ${CMAKE_SOURCE_DIR}/Source/Core/Bool.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/CompilerProtocols.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Equatable.swift
+    ${CMAKE_SOURCE_DIR}/Source/Core/Int.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Int8.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Int32.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Integers.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Never.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Policy.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Swift.swift
+    ${CMAKE_SOURCE_DIR}/Source/Core/UInt.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/UInt8.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/UInt32.swift)
 add_custom_command(OUTPUT
