@@ -22,7 +22,7 @@ add_custom_command(OUTPUT
                      ${CMAKE_Swift_COMPILER} -frontend -target ${CMAKE_C_COMPILE_TARGET} -module-name Swift -parse-as-library -parse-stdlib -enable-resilience -c ${SwiftCore_SOURCES} -o ${CMAKE_CURRENT_BINARY_DIR}/Swift${CMAKE_C_OUTPUT_EXTENSION} -emit-module -emit-module-path ${CMAKE_CURRENT_BINARY_DIR}/Swift.swiftmodule
                    DEPENDS
                      ${SwiftCore_SOURCES})
-add_custom_target(SwiftObject
+add_custom_target(swiftCore_OBJECT
                   DEPENDS
                     ${CMAKE_CURRENT_BINARY_DIR}/Swift${CMAKE_C_OUTPUT_EXTENSION})
 
@@ -30,4 +30,21 @@ add_library(swiftCore ${CMAKE_CURRENT_BINARY_DIR}/Swift${CMAKE_C_OUTPUT_EXTENSIO
 target_link_libraries(swiftCore PRIVATE swiftRuntime)
 set_target_properties(swiftCore PROPERTIES LINKER_LANGUAGE C)
 target_link_options(swiftCore PRIVATE -nostdlib -fuse-ld=gold -Wl,-u,swift_addNewDSOImage)
+
+set(SwiftOnoneSupport_SOURCES
+    ${CMAKE_SOURCE_DIR}/Source/Onone/SwiftOnoneSupport.swift)
+add_custom_command(OUTPUT
+                     ${CMAKE_CURRENT_BINARY_DIR}/SwiftOnoneSupport${CMAKE_C_OUTPUT_EXTENSION}
+                   COMMAND
+                     ${CMAKE_Swift_COMPILER} -frontend -target ${CMAKE_C_COMPILE_TARGET} -module-name SwiftOnoneSupport -parse-as-library -parse-stdlib -enable-resilience -c ${SwiftOnoneSupport_SOURCES} -o ${CMAKE_CURRENT_BINARY_DIR}/SwiftOnoneSupport${CMAKE_C_OUTPUT_EXTENSION} -emit-module -emit-module-path ${CMAKE_CURRENT_BINARY_DIR}/SwiftOnoneSupport.swiftmodule
+                   DEPENDS
+                     ${SwiftOnoneSupport_SOURCES})
+add_custom_target(swiftOnoneSupport_OBJECT
+                  DEPENDS
+                    ${CMAKE_CURRENT_BINARY_DIR}/SwiftOnoneSupport${CMAKE_C_OUTPUT_EXTENSION})
+
+add_library(swiftOnoneSupport ${CMAKE_CURRENT_BINARY_DIR}/SwiftOnoneSupport${CMAKE_C_OUTPUT_EXTENSION})
+target_link_libraries(swiftOnoneSupport PRIVATE swiftCore)
+set_target_properties(swiftOnoneSupport PROPERTIES LINKER_LANGUAGE C)
+target_link_options(swiftOnoneSupport PRIVATE -nostdlib -fuse-ld=gold)
 
