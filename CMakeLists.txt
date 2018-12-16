@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.13)
 project(uSwift LANGUAGES C)
 
 add_library(swiftRuntime STATIC
+            ${CMAKE_SOURCE_DIR}/Source/Runtime/Metadata.c
             ${CMAKE_SOURCE_DIR}/Source/Runtime/KnownMetadata.c)
 
 set(SwiftCore_SOURCES
@@ -28,5 +29,5 @@ add_custom_target(SwiftObject
 add_library(swiftCore ${CMAKE_CURRENT_BINARY_DIR}/Swift${CMAKE_C_OUTPUT_EXTENSION})
 target_link_libraries(swiftCore PRIVATE swiftRuntime)
 set_target_properties(swiftCore PROPERTIES LINKER_LANGUAGE C)
-target_link_options(swiftCore PRIVATE -nostdlib -fuse-ld=gold)
+target_link_options(swiftCore PRIVATE -nostdlib -fuse-ld=gold -Wl,-u,swift_addNewDSOImage)
 
