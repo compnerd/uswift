@@ -66,7 +66,7 @@ prefix operator ! : Bool
 infix operator == : ComparisonPrecedence, Equatable
 infix operator != : ComparisonPrecedence, Equatable
 
-infix operator && : LogicalDisjunctionPrecedence, Bool
+infix operator && : LogicalConjunctionPrecedence, Bool
 
 infix operator || : LogicalDisjunctionPrecedence, Bool
 
