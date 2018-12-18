@@ -24,6 +24,10 @@ precedencegroup TernaryPrecedence {
   higherThan: FunctionArrowPrecedence
 }
 
+precedencegroup DefaultPrecedence {
+  higherThan: TernaryPrecedence
+}
+
 precedencegroup LogicalDisjunctionPrecedence {
   associativity: left
   higherThan: TernaryPrecedence
@@ -36,6 +40,25 @@ precedencegroup LogicalConjunctionPrecedence {
 
 precedencegroup ComparisonPrecedence {
   higherThan: LogicalConjunctionPrecedence
+}
+
+precedencegroup NilCoalescingPrecedence {
+  associativity: right
+  higherThan: ComparisonPrecedence
+}
+
+precedencegroup AdditionPrecedence {
+  associativity: left
+  higherThan: NilCoalescingPrecedence
+}
+
+precedencegroup MultiplicationPrecedence {
+  associativity: left
+  higherThan: AdditionPrecedence
+}
+
+precedencegroup BitwiseShiftPrecedence {
+  higherThan: MultiplicationPrecedence
 }
 
 prefix operator ! : Bool
