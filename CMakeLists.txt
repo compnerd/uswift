@@ -16,6 +16,7 @@ set(SwiftCore_SOURCES
     ${CMAKE_SOURCE_DIR}/Source/Core/Int32.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Integers.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Never.swift
+    ${CMAKE_SOURCE_DIR}/Source/Core/Optional.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/OptionSet.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Policy.swift
     ${CMAKE_SOURCE_DIR}/Source/Core/Swift.swift
