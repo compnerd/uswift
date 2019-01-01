@@ -27,6 +27,10 @@ public protocol ExpressibleByIntegerLiteral {
   init(integerLiteral value: IntegerLiteralType)
 }
 
+public protocol ExpressibleByNilLiteral {
+  init(nilLiteral: ())
+}
+
 public protocol RawRepresentable {
   associatedtype RawValue
   var rawValue: RawValue { get }
