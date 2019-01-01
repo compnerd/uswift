@@ -34,5 +34,6 @@ public protocol ExpressibleByNilLiteral {
 public protocol RawRepresentable {
   associatedtype RawValue
   var rawValue: RawValue { get }
+  init?(rawValue: RawValue)
 }
 
