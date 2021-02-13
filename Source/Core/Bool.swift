@@ -1,5 +1,5 @@
 
-@_fixed_layout
+@frozen
 public struct Bool {
   @usableFromInline
   internal var _value: Builtin.Int1

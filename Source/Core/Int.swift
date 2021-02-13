@@ -2,7 +2,7 @@
 // XXX(compnerd) why can `Int` not be a typealias?
 // The typealias does not inherit the Equatable conformance
 
-@_fixed_layout
+@frozen
 public struct Int {
   @usableFromInline
   internal var _value: Builtin.Int32

@@ -1,5 +1,5 @@
 
-@_fixed_layout
+@frozen
 public struct Int8 {
   @usableFromInline
   internal var _value: Builtin.Int8
