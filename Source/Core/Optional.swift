@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: BSD-3
 
 @_frozen
-public enum Optional<Wrapped> : ExpressibleByNilLiteral {
+public enum Optional<Wrapped>: ExpressibleByNilLiteral {
   case none
   case some(Wrapped)
 
@@ -12,10 +12,8 @@ public enum Optional<Wrapped> : ExpressibleByNilLiteral {
     self = .some(value)
   }
 
-
   @_transparent
   public init(nilLiteral: ()) {
     self = .none
   }
 }
-

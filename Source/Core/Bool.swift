@@ -25,14 +25,14 @@ public struct Bool {
   }
 }
 
-extension Bool : _ExpressibleByBuiltinBooleanLiteral {
+extension Bool: _ExpressibleByBuiltinBooleanLiteral {
   @_transparent
   public init(_builtinBooleanLiteral value: Builtin.Int1) {
     self._value = value
   }
 }
 
-extension Bool : ExpressibleByBooleanLiteral {
+extension Bool: ExpressibleByBooleanLiteral {
   @_transparent
   public init(booleanLiteral value: Bool) {
     self = value
@@ -47,7 +47,7 @@ extension Bool {
   }
 }
 
-extension Bool : Equatable {
+extension Bool: Equatable {
   @_transparent
   public static func == (lhs: Bool, rhs: Bool) -> Bool {
     return Bool(Builtin.cmp_eq_Int1(lhs._value, rhs._value))
@@ -64,16 +64,19 @@ extension Bool {
 extension Bool {
   @_transparent
   @inline(__always)
-  public static func && (lhs: Bool,
-                         rhs: @autoclosure () throws -> Bool) rethrows -> Bool {
+  public static func && (
+    lhs: Bool,
+    rhs: @autoclosure () throws -> Bool
+  ) rethrows -> Bool {
     return lhs ? try rhs() : false
   }
 
   @_transparent
   @inline(__always)
-  public static func || (lhs: Bool,
-                         rhs: @autoclosure () throws -> Bool) rethrows -> Bool {
+  public static func || (
+    lhs: Bool,
+    rhs: @autoclosure () throws -> Bool
+  ) rethrows -> Bool {
     return lhs ? true : try rhs()
   }
 }
-
