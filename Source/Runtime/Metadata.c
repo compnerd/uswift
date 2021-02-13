@@ -1,15 +1,27 @@
 
-#if defined(__ELF__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#elif defined(__MACH__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#elif defined(__WASM__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#else
-#define SWIFT_RUNTIME_ABI __declspec(dllexport)
-#endif
+#include "Types.h"
+#include "Visibility.h"
+#include <stdlib.h>
 
 SWIFT_RUNTIME_ABI
-void swift_addNewDSOImage() {
+void swift_addNewDSOImage() {}
+
+SWIFT_RUNTIME_ABI
+ValueMetadata *swift_allocateGenericValueMetadata(
+    const ValueTypeDescriptor *descriptor, const void *arguments,
+    const GenericValueMetadataPattern *pattern, size_t extra) {
+  return NULL;
 }
 
+SWIFT_RUNTIME_ABI
+MetadataResponse swift_checkMetadataState(MetadataRequest request,
+                                          const Metadata *metdata) {
+  return (MetadataResponse){};
+};
+
+SWIFT_RUNTIME_ABI
+MetadataResponse
+swift_getGenericMetadata(MetadataRequest request, const void *const *arguments,
+                         const TypeContextDescriptor *descriptor) {
+  return (MetadataResponse){};
+}

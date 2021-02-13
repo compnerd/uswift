@@ -9,11 +9,9 @@
 #define SWIFT_RUNTIME_ABI __declspec(dllexport)
 #endif
 
-struct ValueWitnessTable {
-};
+struct ValueWitnessTable {};
 
-struct TypeMetadata {
-};
+struct TypeMetadata {};
 
 SWIFT_RUNTIME_ABI
 struct ValueWitnessTable $sBi8_WV;
@@ -32,4 +30,3 @@ struct TypeMetadata $sBi8_N;
 
 SWIFT_RUNTIME_ABI
 struct TypeMetadata $sBi32_N;
-
