@@ -1,3 +1,6 @@
+// Copyright © 2018 Saleem Abdulrasool <compnerd@compnerd.org>.
+// All Rights Reserved.
+// SPDX-License-Identifier: BSD-3
 
 #if defined(__ELF__)
 #define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))

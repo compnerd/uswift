@@ -1,3 +1,6 @@
+// Copyright © 2018 Saleem Abdulrasool <compnerd@compnerd.org>.
+// All Rights Reserved.
+// SPDX-License-Identifier: BSD-3
 
 // XXX(compnerd) why can `Int` not be a typealias?
 // The typealias does not inherit the Equatable conformance
