@@ -5,11 +5,11 @@
 public typealias BooleanLiteralType = Bool
 
 #if arch(arm64) || arch(powerpc64)
-public typealias _MaxBuiltinFloatType = Builtin.FPIEEE128
+  public typealias _MaxBuiltinFloatType = Builtin.FPIEEE128
 #elseif arch(i386) || arch(x86_64)
-public typealias _MaxBuiltinFloatType = Builtin.FPIEEE80
+  public typealias _MaxBuiltinFloatType = Builtin.FPIEEE80
 #else
-public typealias _MaxBuiltinFloatType = Builtin.FPIEEE64
+  public typealias _MaxBuiltinFloatType = Builtin.FPIEEE64
 #endif
 
 precedencegroup AssignmentPrecedence {
@@ -64,12 +64,11 @@ precedencegroup BitwiseShiftPrecedence {
   higherThan: MultiplicationPrecedence
 }
 
-prefix operator ! : Bool
+prefix operator !: Bool
 
-infix operator == : ComparisonPrecedence, Equatable
-infix operator != : ComparisonPrecedence, Equatable
+infix operator ==: ComparisonPrecedence, Equatable
+infix operator !=: ComparisonPrecedence, Equatable
 
-infix operator && : LogicalConjunctionPrecedence, Bool
+infix operator &&: LogicalConjunctionPrecedence, Bool
 
-infix operator || : LogicalDisjunctionPrecedence, Bool
-
+infix operator ||: LogicalDisjunctionPrecedence, Bool

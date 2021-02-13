@@ -12,4 +12,3 @@ extension Equatable {
     return !(lhs == rhs)
   }
 }
-

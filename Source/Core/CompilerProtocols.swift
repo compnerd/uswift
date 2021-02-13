@@ -7,7 +7,7 @@ public protocol _ExpressibleByBuiltinBooleanLiteral {
 }
 
 public protocol ExpressibleByBooleanLiteral {
-  associatedtype BooleanLiteralType : _ExpressibleByBuiltinBooleanLiteral
+  associatedtype BooleanLiteralType: _ExpressibleByBuiltinBooleanLiteral
   init(booleanLiteral value: BooleanLiteralType)
 }
 
@@ -16,10 +16,9 @@ public protocol _ExpressibleByBuiltinFloatLiteral {
 }
 
 public protocol ExpressibleByFloatLiteral {
-  associatedtype FloatLiteralType : _ExpressibleByBuiltinFloatLiteral
+  associatedtype FloatLiteralType: _ExpressibleByBuiltinFloatLiteral
   init(floatLiteral value: FloatLiteralType)
 }
-
 
 public protocol _ExpressibleByBuiltinIntegerLiteral {
   init(_builtinIntegerLiteral value: Builtin.IntLiteral)
@@ -39,4 +38,3 @@ public protocol RawRepresentable {
   var rawValue: RawValue { get }
   init?(rawValue: RawValue)
 }
-
