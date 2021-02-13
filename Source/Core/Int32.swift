@@ -1,5 +1,5 @@
 
-@_fixed_layout
+@frozen
 public struct Int32 {
   @usableFromInline
   internal var _value: Builtin.Int32

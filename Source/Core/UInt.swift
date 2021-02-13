@@ -2,7 +2,7 @@
 // XXX(compnerd) why can `UInt` not be a typealias?
 // The typealias does not inherit the Equatable conformance
 
-@_fixed_layout
+@frozen
 public struct UInt {
   @usableFromInline
   internal var _value: Builtin.Int32
