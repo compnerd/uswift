@@ -21,6 +21,8 @@ add_library(swiftCore
   UInt.swift
   UInt8.swift
   UInt32.swift
+  UnsafeMutablePointer.swift
+  UnsafePointer.swift
   Void.swift)
 set_target_properties(swiftCore PROPERTIES
   Swift_MODULE_NAME Swift)
