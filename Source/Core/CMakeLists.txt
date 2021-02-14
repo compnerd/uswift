@@ -20,7 +20,8 @@ add_library(swiftCore
   Swift.swift
   UInt.swift
   UInt8.swift
-  UInt32.swift)
+  UInt32.swift
+  Void.swift)
 set_target_properties(swiftCore PROPERTIES
   Swift_MODULE_NAME Swift)
 target_compile_options(swiftCore PRIVATE
