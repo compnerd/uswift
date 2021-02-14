@@ -61,8 +61,8 @@ be built.  Defaults to the build.
 
 1. `CMAKE_Swift_COMPILER_WORKS`: Boolean<br/>
 Required parameter.  Must always specify a true boolean value.  This is required
-to skip the checks that the compiler can build code for the target.  The swift
-compiler cannot build code without the standrard library available.  Because we
+to skip the checks that the compiler can build code for the target.  The Swift
+compiler cannot build code without the standard library available.  Because we
 are building the standard library, we must skip the checks and assume that the
 compiler functions properly.
 
