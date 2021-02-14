@@ -2,7 +2,7 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-@_frozen
+@frozen
 public enum Optional<Wrapped>: ExpressibleByNilLiteral {
   case none
   case some(Wrapped)
