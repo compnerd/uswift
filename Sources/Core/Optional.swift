@@ -17,3 +17,22 @@ public enum Optional<Wrapped>: ExpressibleByNilLiteral {
     self = .none
   }
 }
+
+extension Optional: Equatable where Wrapped: Equatable {
+  @inlinable
+  public static func == (_ lhs: Wrapped?, _ rhs: Wrapped?) -> Bool {
+    switch (lhs, rhs) {
+    case let (lhs?, rhs?):
+      return lhs == rhs
+    case (nil, nil):
+      return true
+    default:
+      return false
+    }
+  }
+
+  @inlinable
+  public static func != (_ lhs: Wrapped?, _ rhs: Wrapped?) -> Bool {
+    return !(lhs == rhs)
+  }
+}
