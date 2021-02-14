@@ -2,5 +2,5 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-@_frozen
+@frozen
 public enum Never {}
