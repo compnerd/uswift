@@ -2,6 +2,6 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-typealias CChar = Int8
+public typealias CChar = Int8
 
-typealias CInt = Int32
+public typealias CInt = Int32
