@@ -6,12 +6,16 @@
 #define uSwift_Runtime_Types_h
 
 typedef struct Metadata Metadata;
-typedef struct EnumMetadata EnumMetadata;
-typedef struct ValueMetadata ValueMetadata;
 typedef struct OpaqueValue OpaqueValue;
 
-typedef struct ValueTypeDescriptor ValueTypeDescriptor;
+typedef enum EnumLayoutFlags {
+  invalid,
+} EnumLayoutFlags;
+typedef struct EnumMetadata EnumMetadata;
+
 typedef struct GenericValueMetadataPattern GenericValueMetadataPattern;
+
+typedef struct HeapObject HeapObject;
 
 typedef struct MetdataRequest {
 } MetadataRequest;
@@ -20,12 +24,13 @@ typedef struct MetdataResponse {
 
 typedef struct TypeContextDescriptor TypeContextDescriptor;
 typedef struct TypeLayout TypeLayout;
+typedef struct TypeMetadata {
+} TypeMetadata;
 
-typedef struct HeapObject HeapObject;
-
-typedef enum EnumLayoutFlags {
-  invalid,
-} EnumLayoutFlags;
+typedef struct ValueMetadata ValueMetadata;
+typedef struct ValueTypeDescriptor ValueTypeDescriptor;
+typedef struct ValueWitnessTable {
+} ValueWitnessTable;
 
 typedef void(__attribute__((__swiftcall__)) *
              StoreExtraInhabitantTagFn)(OpaqueValue *value, unsigned store_case,

@@ -2,34 +2,23 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-#if defined(__ELF__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#elif defined(__MACH__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#elif defined(__WASM__)
-#define SWIFT_RUNTIME_ABI __attribute__((__visibility__("default")))
-#else
-#define SWIFT_RUNTIME_ABI __declspec(dllexport)
-#endif
-
-struct ValueWitnessTable {};
-
-struct TypeMetadata {};
+#include "Types.h"
+#include "Visibility.h"
 
 SWIFT_RUNTIME_ABI
-struct ValueWitnessTable $sBi8_WV;
+ValueWitnessTable $sBi8_WV;
 
 SWIFT_RUNTIME_ABI
-struct ValueWitnessTable $sBi32_WV;
+ValueWitnessTable $sBi32_WV;
 
 SWIFT_RUNTIME_ABI
-struct ValueWitnessTable $sytWV;
+ValueWitnessTable $sytWV;
 
 SWIFT_RUNTIME_ABI
-struct TypeMetadata $sBi1_N;
+TypeMetadata $sBi1_N;
 
 SWIFT_RUNTIME_ABI
-struct TypeMetadata $sBi8_N;
+TypeMetadata $sBi8_N;
 
 SWIFT_RUNTIME_ABI
-struct TypeMetadata $sBi32_N;
+TypeMetadata $sBi32_N;
