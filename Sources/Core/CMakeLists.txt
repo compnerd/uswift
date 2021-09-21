@@ -29,6 +29,7 @@ set_target_properties(swiftCore PROPERTIES
   Swift_MODULE_NAME Swift)
 target_compile_options(swiftCore PRIVATE
   -parse-stdlib
+  -disallow-use-new-driver
   "SHELL:-Xfrontend -enable-resilience")
 target_link_libraries(swiftCore PRIVATE
   swiftRuntime)
