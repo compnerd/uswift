@@ -11,6 +11,7 @@ set_target_properties(swiftOnoneSupport PROPERTIES
   Swift_MODULE_NAME SwiftOnoneSupport)
 target_compile_options(swiftOnoneSupport PRIVATE
   -parse-stdlib
+  -disallow-use-new-driver
   "SHELL:-Xfrontend -enable-resilience")
 target_link_libraries(swiftOnoneSupport PUBLIC
   swiftCore)
