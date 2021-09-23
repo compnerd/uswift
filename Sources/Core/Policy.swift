@@ -64,11 +64,11 @@ precedencegroup BitwiseShiftPrecedence {
   higherThan: MultiplicationPrecedence
 }
 
-prefix operator !: Bool
+prefix operator !
 
-infix operator ==: ComparisonPrecedence, Equatable
-infix operator !=: ComparisonPrecedence, Equatable
+infix operator ==: ComparisonPrecedence
+infix operator !=: ComparisonPrecedence
 
-infix operator &&: LogicalConjunctionPrecedence, Bool
+infix operator &&: LogicalConjunctionPrecedence
 
-infix operator ||: LogicalDisjunctionPrecedence, Bool
+infix operator ||: LogicalDisjunctionPrecedence
