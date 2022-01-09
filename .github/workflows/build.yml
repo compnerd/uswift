@@ -23,25 +23,10 @@ jobs:
 
     steps:
       - name: Install Swift ${{ matrix.tag }}
-        run: |
-          function Update-EnvironmentVariables {
-            foreach ($level in "Machine", "User") {
-              [Environment]::GetEnvironmentVariables($level).GetEnumerator() | % {
-                # For Path variables, append the new values, if they're not already in there
-                if ($_.Name -Match 'Path$') {
-                  $_.Value = ($((Get-Content "Env:$($_.Name)") + ";$($_.Value)") -Split ';' | Select -Unique) -Join ';'
-                }
-                $_
-              } | Set-Content -Path { "Env:$($_.Name)" }
-            }
-          }
-
-          Install-Binary -Url "https://swift.org/builds/${{ matrix.branch }}/windows10/swift-${{ matrix.tag }}/swift-${{ matrix.tag }}-windows10.exe" -Name "installer.exe" -ArgumentList ("-q")
-          Update-EnvironmentVariables
-
-          # Reset Path and environment
-          echo "$env:Path" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
-          Get-ChildItem Env: | % { echo "$($_.Name)=$($_.Value)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append }
+        uses: compnerd/gha-setup-swift@main
+        with:
+          branch: ${{ matrix.branch }}
+          tag: ${{ matrix.tag }}
 
       - uses: actions/checkout@v2
 
@@ -52,7 +37,7 @@ jobs:
         run: |
           # workaround CMake 3.20.0 bug
           $SDK_ROOT = cygpath -m $env:SDKROOT
-          cmake -B out -D CMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER=clang-cl -D CMAKE_CXX_COMPILER=clang-cl -D CMAKE_MT=mt -D CMAKE_Swift_FLAGS="-sdk $SDK_ROOT" -G Ninja -S ${{ github.workspace }}
+          cmake -B out -D BUILD_SHARED_LIBS=YES -D CMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER=clang-cl -D CMAKE_CXX_COMPILER=clang-cl -D CMAKE_MT=mt -D CMAKE_Swift_FLAGS="-sdk $SDK_ROOT" -G Ninja -S ${{ github.workspace }}
 
       - name: build
         run: cmake --build out --config Release
