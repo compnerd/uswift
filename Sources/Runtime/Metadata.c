@@ -25,3 +25,11 @@ swift_getGenericMetadata(MetadataRequest request, const void *const *arguments,
                          const TypeContextDescriptor *descriptor) {
   return (MetadataResponse){};
 }
+
+SWIFT_RUNTIME_ABI
+MetadataResponse
+swift_getTupleTypeMetadata2(MetadataRequest request, const Metadata *element0,
+                            const Metadata *element1, const char *labels,
+                            const ValueWitnessTable *witnesses) {
+  return (MetadataResponse){};
+}
