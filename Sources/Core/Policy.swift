@@ -6,7 +6,7 @@ public typealias BooleanLiteralType = Bool
 
 #if arch(arm64) || arch(powerpc64)
   public typealias _MaxBuiltinFloatType = Builtin.FPIEEE128
-#elseif arch(i386) || arch(x86_64)
+#elseif !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
   public typealias _MaxBuiltinFloatType = Builtin.FPIEEE80
 #else
   public typealias _MaxBuiltinFloatType = Builtin.FPIEEE64
