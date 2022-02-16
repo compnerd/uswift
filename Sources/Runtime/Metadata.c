@@ -1,7 +1,7 @@
 
 #include "Types.h"
 #include "Visibility.h"
-#include <stdlib.h>
+#include <stddef.h>
 
 SWIFT_RUNTIME_ABI
 void swift_addNewDSOImage() {}

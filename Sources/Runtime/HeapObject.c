@@ -2,7 +2,7 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-#include <stdlib.h>
+#include <stddef.h>
 
 #include "Types.h"
 #include "Visibility.h"
