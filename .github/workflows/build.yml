@@ -32,7 +32,12 @@ jobs:
       - uses: actions/checkout@v2
 
       # - uses: seanmiddleditch/gha-setup-ninja@master
-      - uses: seanmiddleditch/gha-setup-vsdevenv@master
+      # - uses: seanmiddleditch/gha-setup-vsdevenv@master
+
+      - name: wat
+        run: |
+          where mt.exe
+        shell: cmd
 
       - name: configure
         run: |
