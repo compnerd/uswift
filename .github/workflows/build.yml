@@ -36,8 +36,7 @@ jobs:
 
       - name: wat
         run: |
-          where mt.exe
-        shell: cmd
+          Get-Command mt.exe
 
       - name: configure
         run: |
