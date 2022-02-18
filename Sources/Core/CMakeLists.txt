@@ -23,6 +23,7 @@ add_library(swiftCore
   Pointer.swift
   Policy.swift
   Sequence.swift
+  StaticString.swift
   Swift.swift
   UInt.swift
   UInt8.swift

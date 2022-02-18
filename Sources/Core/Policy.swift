@@ -50,6 +50,10 @@ precedencegroup NilCoalescingPrecedence {
   higherThan: ComparisonPrecedence
 }
 
+precedencegroup CastingPrecedence {
+  higherThan: NilCoalescingPrecedence
+}
+
 precedencegroup AdditionPrecedence {
   associativity: left
   higherThan: NilCoalescingPrecedence
