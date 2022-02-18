@@ -1,7 +1,7 @@
 μSwift[Core]
 ------------
 
-The Swift language is implemented a small layer of sugar over LLVM IR.  This
+The Swift language is implemented as a small layer of sugar over LLVM IR.  This
 includes the core types such as `Bool`.  In order to support even basic
 constructs, the language requires the standard library to be available.  The
 reference standard library is a large code base and has additional dependencies
