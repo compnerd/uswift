@@ -38,3 +38,13 @@ public protocol RawRepresentable {
   var rawValue: RawValue { get }
   init?(rawValue: RawValue)
 }
+
+public protocol _ExpressibleByBuiltinStringLiteral {
+  init(_builtinStringLiteral start: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1)
+}
+
+public protocol ExpressibleByStringLiteral {
+  associatedtype StringLiteralType: _ExpressibleByBuiltinStringLiteral
+
+  init(stringLiteral value: StringLiteralType)
+}
