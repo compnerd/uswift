@@ -16,6 +16,7 @@ add_library(swiftCore
   Int32.swift
   Integers.swift
   IteratorProtocol.swift
+  LifetimeManager.swift
   Never.swift
   OpaquePointer.swift
   Optional.swift
