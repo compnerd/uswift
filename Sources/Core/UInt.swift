@@ -15,8 +15,7 @@ extension UInt: _ExpressibleByBuiltinIntegerLiteral {
   }
 }
 
-extension UInt: ExpressibleByIntegerLiteral {
-}
+extension UInt: ExpressibleByIntegerLiteral {}
 
 extension UInt: Equatable {
   @_transparent

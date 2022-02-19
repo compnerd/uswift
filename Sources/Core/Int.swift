@@ -15,8 +15,7 @@ extension Int: _ExpressibleByBuiltinIntegerLiteral {
   }
 }
 
-extension Int: ExpressibleByIntegerLiteral {
-}
+extension Int: ExpressibleByIntegerLiteral {}
 
 extension Int: Equatable {
   @_transparent

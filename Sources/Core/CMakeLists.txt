@@ -15,6 +15,7 @@ add_library(swiftCore
   Int32.swift
   Integers.swift
   Never.swift
+  OpaquePointer.swift
   Optional.swift
   OptionSet.swift
   Policy.swift
