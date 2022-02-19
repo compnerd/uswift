@@ -13,13 +13,13 @@ public struct Int8 {
   }
 
   @_transparent
-  public static func &= (_ lhs: inout Int8, _ rhs: Int8) {
+  public static func &= (_ lhs: inout Self, _ rhs: Self) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (_ lhs: Int8, _ rhs: Int8) -> Int8 {
-    return Int8(Builtin.and_Int8(lhs._value, rhs._value))
+  public static func & (_ lhs: Self, _ rhs: Self) -> Self {
+    return Self(Builtin.and_Int8(lhs._value, rhs._value))
   }
 }
 
@@ -35,7 +35,7 @@ extension Int8: ExpressibleByIntegerLiteral {
 
 extension Int8: Equatable {
   @_transparent
-  public static func == (_ lhs: Int8, _ rhs: Int8) -> Bool {
+  public static func == (_ lhs: Self, _ rhs: Self) -> Bool {
     return Bool(Builtin.cmp_eq_Int8(lhs._value, rhs._value))
   }
 }

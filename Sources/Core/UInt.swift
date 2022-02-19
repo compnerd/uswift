@@ -13,13 +13,13 @@ public struct UInt {
   }
 
   @_transparent
-  public static func &= (lhs: inout UInt, rhs: UInt) {
+  public static func &= (lhs: inout Self, rhs: Self) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (lhs: UInt, rhs: UInt) -> UInt {
-    return UInt(Builtin.and_Word(lhs._value, rhs._value))
+  public static func & (lhs: Self, rhs: Self) -> Self {
+    return Self(Builtin.and_Word(lhs._value, rhs._value))
   }
 }
 
@@ -35,7 +35,7 @@ extension UInt: ExpressibleByIntegerLiteral {
 
 extension UInt: Equatable {
   @_transparent
-  public static func == (lhs: UInt, rhs: UInt) -> Bool {
+  public static func == (_ lhs: Self, _ rhs: Self) -> Bool {
     return Bool(Builtin.cmp_eq_Word(lhs._value, rhs._value))
   }
 }
