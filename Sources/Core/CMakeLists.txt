@@ -14,6 +14,7 @@ add_library(swiftCore
   Int8.swift
   Int32.swift
   Integers.swift
+  MemoryLayout.swift
   Never.swift
   OpaquePointer.swift
   Optional.swift
