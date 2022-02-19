@@ -36,16 +36,14 @@ public struct UnsafeMutableRawPointer: _Pointer {
   }
 
   @inlinable
-  public static func allocate(
-    byteCount: Int, alignment: Int
-  ) -> UnsafeMutableRawPointer {
+  public static func allocate(byteCount: Int,
+                              alignment: Int) -> UnsafeMutableRawPointer {
     var alignment = alignment
     if alignment <= minAllocationAlignment() {
       alignment = 0
     }
     return UnsafeMutableRawPointer(Builtin.allocRaw(
-      byteCount._value, alignment._value
-    ))
+      byteCount._value, alignment._value))
   }
 
   @inlinable
@@ -57,9 +55,8 @@ public struct UnsafeMutableRawPointer: _Pointer {
 
   @_transparent
   @discardableResult
-  public func bindMemory<T>(
-    to type: T.Type, capacity count: Int
-  ) -> UnsafeMutablePointer<T> {
+  public func bindMemory<T>(to type: T.Type, capacity count: Int)
+    -> UnsafeMutablePointer<T> {
     Builtin.bindMemory(_rawValue, count._value, type)
     return UnsafeMutablePointer<T>(_rawValue)
   }
