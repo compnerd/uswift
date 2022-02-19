@@ -7,6 +7,7 @@ SPDX-License-Identifier: BSD-3
 
 add_library(swiftCore
   Bool.swift
+  Builtin.swift
   CompilerProtocols.swift
   CTypes.swift
   Equatable.swift
