@@ -2,6 +2,9 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
+// This `OpaquePointer` implementation is known to crash 5.4 and 5.5 compiler releases on Windows.
+#if swift(>=5.6)
+
 @frozen
 public struct OpaquePointer {
   @usableFromInline
@@ -14,13 +17,13 @@ public struct OpaquePointer {
 
   @_transparent
   public init?(bitPattern: Int) {
-    guard bitPattern != 0 else { return nil }
+    if bitPattern == 0 { return nil }
     _rawValue = Builtin.inttoptr_Word(bitPattern._value)
   }
 
   @_transparent
   public init?(bitPattern: UInt) {
-    guard bitPattern != 0 else { return nil }
+    if bitPattern == 0 { return nil }
     _rawValue = Builtin.inttoptr_Word(bitPattern._value)
   }
 
@@ -46,3 +49,5 @@ public struct OpaquePointer {
     self.init(unwrapped)
   }
 }
+
+#endif
