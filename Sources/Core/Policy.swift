@@ -68,6 +68,10 @@ prefix operator !
 
 infix operator ==: ComparisonPrecedence
 infix operator !=: ComparisonPrecedence
+infix operator <: ComparisonPrecedence
+infix operator <=: ComparisonPrecedence
+infix operator >: ComparisonPrecedence
+infix operator >=: ComparisonPrecedence
 
 infix operator &&: LogicalConjunctionPrecedence
 
