@@ -39,3 +39,10 @@ extension UInt32: Equatable {
     return Bool(Builtin.cmp_eq_Int32(lhs._value, rhs._value))
   }
 }
+
+extension UInt32: Comparable {
+  @_transparent
+  public static func < (_ lhs: UInt32, _ rhs: UInt32) -> Bool {
+    return Bool(Builtin.cmp_ult_Int32(lhs._value, rhs._value))
+  }
+}

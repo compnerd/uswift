@@ -39,3 +39,10 @@ extension Int8: Equatable {
     return Bool(Builtin.cmp_eq_Int8(lhs._value, rhs._value))
   }
 }
+
+extension Int8: Comparable {
+  @_transparent
+  public static func < (_ lhs: Int8, _ rhs: Int8) -> Bool {
+    return Bool(Builtin.cmp_slt_Int8(lhs._value, rhs._value))
+  }
+}

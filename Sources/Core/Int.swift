@@ -39,3 +39,10 @@ extension Int: Equatable {
     return Bool(Builtin.cmp_eq_Word(lhs._value, rhs._value))
   }
 }
+
+extension Int: Comparable {
+  @_transparent
+  public static func < (_ lhs: Int, _ rhs: Int) -> Bool {
+    return Bool(Builtin.cmp_slt_Word(lhs._value, rhs._value))
+  }
+}
