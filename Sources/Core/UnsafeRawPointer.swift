@@ -35,6 +35,20 @@ public struct UnsafeRawPointer: _Pointer {
     _rawValue = unwrapped._rawValue
   }
 
+  @_transparent
+  @discardableResult
+  public func bindMemory<T>(
+    to type: T.Type, capacity count: Int
+  ) -> UnsafePointer<T> {
+    Builtin.bindMemory(_rawValue, count._value, type)
+    return UnsafePointer<T>(_rawValue)
+  }
+
+  @_transparent
+  public func assumingMemoryBound<T>(to: T.Type) -> UnsafePointer<T> {
+    UnsafePointer<T>(_rawValue)
+  }
+
   @inlinable
   public func deallocate() {
     let size: Int = -1
