@@ -33,6 +33,7 @@ add_library(swiftCore
   UInt8.swift
   UInt32.swift
   UnsafeMutablePointer.swift
+  UnsafeMutableRawPointer.swift
   UnsafePointer.swift
   UnsafeRawPointer.swift
   Void.swift)
