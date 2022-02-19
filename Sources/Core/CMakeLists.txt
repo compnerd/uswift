@@ -21,6 +21,7 @@ add_library(swiftCore
   OptionSet.swift
   Pointer.swift
   Policy.swift
+  Sequence.swift
   Swift.swift
   UInt.swift
   UInt8.swift
