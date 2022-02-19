@@ -6,6 +6,7 @@ SPDX-License-Identifier: BSD-3
 #]]
 
 add_library(swiftCore
+  Assert.swift
   Bool.swift
   Builtin.swift
   Comparable.swift
