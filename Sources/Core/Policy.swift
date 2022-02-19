@@ -72,3 +72,7 @@ infix operator !=: ComparisonPrecedence
 infix operator &&: LogicalConjunctionPrecedence
 
 infix operator ||: LogicalDisjunctionPrecedence
+
+infix operator &: MultiplicationPrecedence
+
+infix operator &=: AssignmentPrecedence

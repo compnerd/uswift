@@ -6,6 +6,21 @@
 public struct Int8 {
   @usableFromInline
   internal var _value: Builtin.Int8
+
+  @_transparent
+  public init(_ _value: Builtin.Int8) {
+    self._value = _value
+  }
+
+  @_transparent
+  public static func &= (lhs: inout Int8, rhs: Int8) {
+    lhs = lhs & rhs
+  }
+
+  @_transparent
+  public static func & (lhs: Int8, rhs: Int8) -> Int8 {
+    Int8(Builtin.and_Int8(lhs._value, rhs._value))
+  }
 }
 
 extension Int8: _ExpressibleByBuiltinIntegerLiteral {
