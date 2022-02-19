@@ -6,6 +6,21 @@
 public struct Int {
   @usableFromInline
   internal var _value: Builtin.Word
+
+  @_transparent
+  public init(_ _value: Builtin.Word) {
+    self._value = _value
+  }
+
+  @_transparent
+  public static func &= (lhs: inout Int, rhs: Int) {
+    lhs = lhs & rhs
+  }
+
+  @_transparent
+  public static func & (lhs: Int, rhs: Int) -> Int {
+    Int(Builtin.and_Word(lhs._value, rhs._value))
+  }
 }
 
 extension Int: _ExpressibleByBuiltinIntegerLiteral {

@@ -6,6 +6,21 @@
 public struct Int32 {
   @usableFromInline
   internal var _value: Builtin.Int32
+
+  @_transparent
+  public init(_ _value: Builtin.Int32) {
+    self._value = _value
+  }
+
+  @_transparent
+  public static func &= (lhs: inout Int32, rhs: Int32) {
+    lhs = lhs & rhs
+  }
+
+  @_transparent
+  public static func & (lhs: Int32, rhs: Int32) -> Int32 {
+    Int32(Builtin.and_Int32(lhs._value, rhs._value))
+  }
 }
 
 extension Int32: _ExpressibleByBuiltinIntegerLiteral {
