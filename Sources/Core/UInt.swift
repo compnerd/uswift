@@ -39,3 +39,10 @@ extension UInt: Equatable {
     return Bool(Builtin.cmp_eq_Word(lhs._value, rhs._value))
   }
 }
+
+extension UInt: Comparable {
+  @_transparent
+  public static func < (_ lhs: UInt, _ rhs: UInt) -> Bool {
+    return Bool(Builtin.cmp_ult_Word(lhs._value, rhs._value))
+  }
+}
