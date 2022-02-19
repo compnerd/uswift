@@ -19,7 +19,7 @@ public struct UInt {
 
   @_transparent
   public static func & (lhs: UInt, rhs: UInt) -> UInt {
-    UInt(Builtin.and_Word(lhs._value, rhs._value))
+    return UInt(Builtin.and_Word(lhs._value, rhs._value))
   }
 }
 

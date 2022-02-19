@@ -13,12 +13,12 @@ public struct Int {
   }
 
   @_transparent
-  public static func &= (lhs: inout Int, rhs: Int) {
+  public static func &= (_ lhs: inout Int, _ rhs: Int) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (lhs: Int, rhs: Int) -> Int {
+  public static func & (_ lhs: Int, _ rhs: Int) -> Int {
     Int(Builtin.and_Word(lhs._value, rhs._value))
   }
 }
@@ -35,7 +35,7 @@ extension Int: ExpressibleByIntegerLiteral {
 
 extension Int: Equatable {
   @_transparent
-  public static func == (lhs: Int, rhs: Int) -> Bool {
+  public static func == (_ lhs: Int, _ rhs: Int) -> Bool {
     return Bool(Builtin.cmp_eq_Word(lhs._value, rhs._value))
   }
 }

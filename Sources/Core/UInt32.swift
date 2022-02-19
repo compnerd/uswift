@@ -13,13 +13,13 @@ public struct UInt32 {
   }
 
   @_transparent
-  public static func &= (lhs: inout UInt32, rhs: UInt32) {
+  public static func &= (_ lhs: inout UInt32, _ rhs: UInt32) {
     lhs = lhs & rhs
   }
 
   @_transparent
   public static func & (lhs: UInt32, rhs: UInt32) -> UInt32 {
-    UInt32(Builtin.and_Int32(lhs._value, rhs._value))
+    return UInt32(Builtin.and_Int32(lhs._value, rhs._value))
   }
 }
 
@@ -35,7 +35,7 @@ extension UInt32: ExpressibleByIntegerLiteral {
 
 extension UInt32: Equatable {
   @_transparent
-  public static func == (lhs: UInt32, rhs: UInt32) -> Bool {
+  public static func == (_ lhs: UInt32, _ rhs: UInt32) -> Bool {
     return Bool(Builtin.cmp_eq_Int32(lhs._value, rhs._value))
   }
 }

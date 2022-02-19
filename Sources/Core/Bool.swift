@@ -49,14 +49,14 @@ extension Bool {
 
 extension Bool: Equatable {
   @_transparent
-  public static func == (lhs: Bool, rhs: Bool) -> Bool {
+  public static func == (_ lhs: Bool, _ rhs: Bool) -> Bool {
     return Bool(Builtin.cmp_eq_Int1(lhs._value, rhs._value))
   }
 }
 
 extension Bool {
   @_transparent
-  public static prefix func ! (value: Bool) -> Bool {
+  public static prefix func ! (_ value: Bool) -> Bool {
     return Bool(Builtin.xor_Int1(value._value, true._value))
   }
 }
@@ -64,19 +64,15 @@ extension Bool {
 extension Bool {
   @_transparent
   @inline(__always)
-  public static func && (
-    lhs: Bool,
-    rhs: @autoclosure () throws -> Bool
-  ) rethrows -> Bool {
+  public static func && (_ lhs: Bool, _ rhs: @autoclosure () throws -> Bool)
+      rethrows -> Bool {
     return lhs ? try rhs() : false
   }
 
   @_transparent
   @inline(__always)
-  public static func || (
-    lhs: Bool,
-    rhs: @autoclosure () throws -> Bool
-  ) rethrows -> Bool {
+  public static func || (_ lhs: Bool, _ rhs: @autoclosure () throws -> Bool)
+      rethrows -> Bool {
     return lhs ? true : try rhs()
   }
 }
