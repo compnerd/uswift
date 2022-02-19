@@ -35,6 +35,9 @@ public struct UnsafeRawPointer: _Pointer {
     _rawValue = unwrapped._rawValue
   }
 
+// These functions are known to crash 5.4 and 5.5 compiler releases on Windows.
+#if swift(>=5.6)
+
   @_transparent
   @discardableResult
   public func bindMemory<T>(
@@ -48,6 +51,8 @@ public struct UnsafeRawPointer: _Pointer {
   public func assumingMemoryBound<T>(to: T.Type) -> UnsafePointer<T> {
     UnsafePointer<T>(_rawValue)
   }
+
+#endif
 
   @inlinable
   public func deallocate() {
