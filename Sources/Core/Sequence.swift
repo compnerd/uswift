@@ -2,12 +2,6 @@
 // All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
-public protocol IteratorProtocol {
-  associatedtype Element
-
-  mutating func next() -> Element?
-}
-
 public protocol Sequence {
   associatedtype Element
   associatedtype Iterator: IteratorProtocol where Iterator.Element == Element
