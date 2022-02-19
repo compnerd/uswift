@@ -1,0 +1,25 @@
+// Copyright © 2022 Max Desiatov <max@desiatov.com>.
+// All Rights Reserved.
+// SPDX-License-Identifier: BSD-3
+
+public protocol Strideable: Comparable {
+  associatedtype Stride: SignedNumeric, Comparable
+
+  func distance(to other: Self) -> Stride
+  func advanced(by n: Stride) -> Self
+
+  static func _step(
+    after current: (index: Int?, value: Self),
+    from start: Self, by distance: Self.Stride
+  ) -> (index: Int?, value: Self)
+}
+
+extension Strideable {
+  @inlinable
+  public static func _step(
+    after current: (index: Int?, value: Self),
+    from start: Self, by distance: Self.Stride
+  ) -> (index: Int?, value: Self) {
+    (nil, current.value.advanced(by: distance))
+  }
+}
