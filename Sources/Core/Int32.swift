@@ -13,13 +13,13 @@ public struct Int32 {
   }
 
   @_transparent
-  public static func &= (_ lhs: inout Int32, _ rhs: Int32) {
+  public static func &= (_ lhs: inout Self, _ rhs: Self) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    return Int32(Builtin.and_Int32(lhs._value, rhs._value))
+  public static func & (_ lhs: Self, _ rhs: Self) -> Self {
+    return Self(Builtin.and_Int32(lhs._value, rhs._value))
   }
 }
 
@@ -35,7 +35,7 @@ extension Int32: ExpressibleByIntegerLiteral {
 
 extension Int32: Equatable {
   @_transparent
-  public static func == (lhs: Int32, rhs: Int32) -> Bool {
+  public static func == (_ lhs: Self, _ rhs: Self) -> Bool {
     return Bool(Builtin.cmp_eq_Int32(lhs._value, rhs._value))
   }
 }
