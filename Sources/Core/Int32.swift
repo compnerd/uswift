@@ -13,13 +13,13 @@ public struct Int32 {
   }
 
   @_transparent
-  public static func &= (lhs: inout Int32, rhs: Int32) {
+  public static func &= (_ lhs: inout Int32, _ rhs: Int32) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (lhs: Int32, rhs: Int32) -> Int32 {
-    Int32(Builtin.and_Int32(lhs._value, rhs._value))
+  public static func & (_ lhs: Int32, _ rhs: Int32) -> Int32 {
+    return Int32(Builtin.and_Int32(lhs._value, rhs._value))
   }
 }
 

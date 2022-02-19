@@ -13,13 +13,13 @@ public struct UInt8 {
   }
 
   @_transparent
-  public static func &= (lhs: inout UInt8, rhs: UInt8) {
+  public static func &= (_ lhs: inout UInt8, _ rhs: UInt8) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (lhs: UInt8, rhs: UInt8) -> UInt8 {
-    UInt8(Builtin.and_Int8(lhs._value, rhs._value))
+  public static func & (_ lhs: UInt8, _ rhs: UInt8) -> UInt8 {
+    return UInt8(Builtin.and_Int8(lhs._value, rhs._value))
   }
 }
 
@@ -35,7 +35,7 @@ extension UInt8: ExpressibleByIntegerLiteral {
 
 extension UInt8: Equatable {
   @_transparent
-  public static func == (lhs: UInt8, rhs: UInt8) -> Bool {
+  public static func == (_ lhs: UInt8, _ rhs: UInt8) -> Bool {
     return Bool(Builtin.cmp_eq_Int8(lhs._value, rhs._value))
   }
 }
