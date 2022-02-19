@@ -27,6 +27,11 @@ typedef struct TypeLayout TypeLayout;
 typedef struct TypeMetadata {
 } TypeMetadata;
 
+typedef struct StructLayoutFlags {
+} StructLayoutFlags;
+typedef struct StructMetadata {
+} StructMetadata;
+
 typedef struct ValueMetadata ValueMetadata;
 typedef struct ValueTypeDescriptor ValueTypeDescriptor;
 typedef struct ValueWitnessTable {
