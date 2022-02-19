@@ -18,6 +18,7 @@ add_library(swiftCore
   OpaquePointer.swift
   Optional.swift
   OptionSet.swift
+  Pointer.swift
   Policy.swift
   Swift.swift
   UInt.swift

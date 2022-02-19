@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: BSD-3
 
 @frozen
-public struct UnsafePointer<Pointee> {
+public struct UnsafePointer<Pointee>: _Pointer {
   public let _rawValue: Builtin.RawPointer
 
   @_transparent
