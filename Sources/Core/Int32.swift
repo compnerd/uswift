@@ -43,9 +43,8 @@ extension Int32: Equatable {
 extension Int32: AdditiveArithmetic {
   @_transparent
   public static func + (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    let (result, overflow) = Builtin.sadd_with_overflow_Int32(lhs._value,
-                                                              rhs._value,
-                                                              true._value)
+    let (result, overflow) =
+        Builtin.sadd_with_overflow_Int32(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
@@ -55,9 +54,8 @@ extension Int32: AdditiveArithmetic {
 
   @_transparent
   public static func - (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    let (result, overflow) = Builtin.ssub_with_overflow_Int32(lhs._value,
-                                                              rhs._value,
-                                                              true._value)
+    let (result, overflow) =
+        Builtin.ssub_with_overflow_Int32(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")

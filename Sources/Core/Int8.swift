@@ -43,9 +43,8 @@ extension Int8: Equatable {
 extension Int8: AdditiveArithmetic {
   @_transparent
   public static func + (_ lhs: Int8, _ rhs: Int8) -> Int8 {
-    let (result, overflow) = Builtin.sadd_with_overflow_Int8(lhs._value,
-                                                             rhs._value,
-                                                             true._value)
+    let (result, overflow) =
+        Builtin.sadd_with_overflow_Int8(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
@@ -55,9 +54,8 @@ extension Int8: AdditiveArithmetic {
 
   @_transparent
   public static func - (_ lhs: Int8, _ rhs: Int8) -> Int8 {
-    let (result, overflow) = Builtin.ssub_with_overflow_Int8(lhs._value,
-                                                             rhs._value,
-                                                             true._value)
+    let (result, overflow) =
+        Builtin.ssub_with_overflow_Int8(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")

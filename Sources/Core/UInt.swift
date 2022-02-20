@@ -43,9 +43,8 @@ extension UInt: Equatable {
 extension UInt: AdditiveArithmetic {
   @_transparent
   public static func + (_ lhs: UInt, _ rhs: UInt) -> UInt {
-    let (result, overflow) = Builtin.uadd_with_overflow_Word(lhs._value,
-                                                             rhs._value,
-                                                             true._value)
+    let (result, overflow) =
+        Builtin.uadd_with_overflow_Word(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
@@ -55,9 +54,8 @@ extension UInt: AdditiveArithmetic {
 
   @_transparent
   public static func - (_ lhs: UInt, _ rhs: UInt) -> UInt {
-    let (result, overflow) = Builtin.usub_with_overflow_Word(lhs._value,
-                                                             rhs._value,
-                                                             true._value)
+    let (result, overflow) =
+        Builtin.usub_with_overflow_Word(lhs._value, rhs._value, true._value)
 
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
