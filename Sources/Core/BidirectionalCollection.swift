@@ -14,8 +14,13 @@ public protocol BidirectionalCollection: Collection
   func index(before i: Index) -> Index
   func formIndex(before i: inout Index)
 
-  @_nonoverride func index(_ i: Index, offsetBy distance: Int) -> Index
-  @_nonoverride func index(_ i: Index, offsetBy distance: Int,
-                           limitedBy limit: Index) -> Index?
-  @_nonoverride func distance(from start: Index, to end: Index) -> Int
+  @_nonoverride
+  func index(_ i: Index, offsetBy distance: Int) -> Index
+
+  @_nonoverride
+  func index(_ i: Index, offsetBy distance: Int, limitedBy limit: Index)
+      -> Index?
+
+  @_nonoverride
+  func distance(from start: Index, to end: Index) -> Int
 }
