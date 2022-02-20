@@ -1,0 +1,6 @@
+--disable redundantReturn
+--maxwidth 80
+--closingparen same-line
+--emptybraces linebreak
+--disable wrapMultilineStatementBraces
+--redundanttype explicit
