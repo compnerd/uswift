@@ -2,6 +2,7 @@
 #include "Types.h"
 #include "Visibility.h"
 #include <stddef.h>
+#include <stdint.h>
 
 SWIFT_RUNTIME_ABI
 void swift_addNewDSOImage() {}
@@ -33,3 +34,9 @@ swift_getTupleTypeMetadata2(MetadataRequest request, const Metadata *element0,
                             const ValueWitnessTable *witnesses) {
   return (MetadataResponse){};
 }
+
+SWIFT_RUNTIME_ABI
+void swift_initStructMetadata(StructMetadata *self, StructLayoutFlags flags,
+                              size_t numFields,
+                              const TypeLayout * const *fieldTypes,
+                              uint32_t *fieldOffsets) {}
