@@ -64,6 +64,19 @@ extension Int32: AdditiveArithmetic {
   }
 }
 
+extension Int32: Numeric {
+  @_transparent
+  public static func * (_ lhs: Int32, _ rhs: Int32) -> Int32 {
+    let (result, overflow) =
+        Builtin.smul_with_overflow_Int32(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Int32(result)
+  }
+}
+
 extension Int32: Comparable {
   @_transparent
   public static func < (_ lhs: Int32, _ rhs: Int32) -> Bool {

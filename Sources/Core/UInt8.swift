@@ -64,6 +64,19 @@ extension UInt8: AdditiveArithmetic {
   }
 }
 
+extension UInt8: Numeric {
+  @_transparent
+  public static func * (_ lhs: UInt8, _ rhs: UInt8) -> UInt8 {
+    let (result, overflow) =
+        Builtin.umul_with_overflow_Int8(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return UInt8(result)
+  }
+}
+
 extension UInt8: Comparable {
   @_transparent
   public static func < (_ lhs: UInt8, _ rhs: UInt8) -> Bool {

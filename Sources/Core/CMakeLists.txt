@@ -23,6 +23,7 @@ add_library(swiftCore
   IteratorProtocol.swift
   Lifetime.swift
   Never.swift
+  Numeric.swift
   OpaquePointer.swift
   Operators.swift
   Optional.swift
