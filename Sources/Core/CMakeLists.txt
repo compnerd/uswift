@@ -18,6 +18,7 @@ add_library(swiftCore
   Equatable.swift
   Int.swift
   Int8.swift
+  Int16.swift
   Int32.swift
   Integers.swift
   IteratorProtocol.swift
@@ -35,6 +36,7 @@ add_library(swiftCore
   Swift.swift
   UInt.swift
   UInt8.swift
+  UInt16.swift
   UInt32.swift
   UnsafeMutablePointer.swift
   UnsafeMutableRawPointer.swift
