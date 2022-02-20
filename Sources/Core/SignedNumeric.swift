@@ -7,3 +7,8 @@ public protocol SignedNumeric: Numeric {
 
   mutating func negate()
 }
+
+// FIXME: extension with default implementations of `prefix func -` and
+// `negate()` are missing. This extension currently causes assertions in the
+// type checker. We assume that this is caused by our iterative approach, which
+// temporarily excluded certain requirements from previously added protocols.
