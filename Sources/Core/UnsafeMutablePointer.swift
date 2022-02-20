@@ -1,5 +1,4 @@
-// Copyright © 2021 Zoe Carver <zoe@zoecarver.com>.
-// All Rights Reserved.
+// Copyright © 2021 μSwift Authors.  All Rights Reserved.
 // SPDX-License-Identifier: BSD-3
 
 @frozen
