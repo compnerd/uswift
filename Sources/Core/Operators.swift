@@ -59,6 +59,7 @@ precedencegroup BitwiseShiftPrecedence {
 }
 
 prefix operator !
+prefix operator -
 
 infix operator ==: ComparisonPrecedence
 infix operator !=: ComparisonPrecedence

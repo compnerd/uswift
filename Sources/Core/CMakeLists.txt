@@ -33,6 +33,7 @@ add_library(swiftCore
   Range.swift
   RangeExpression.swift
   Sequence.swift
+  SignedNumeric.swift
   StaticString.swift
   Swift.swift
   UInt.swift
