@@ -71,6 +71,11 @@ infix operator &&: LogicalConjunctionPrecedence
 
 infix operator ||: LogicalDisjunctionPrecedence
 
+infix operator +: AdditionPrecedence
+infix operator -: AdditionPrecedence
+
 infix operator &: MultiplicationPrecedence
 
 infix operator &=: AssignmentPrecedence
+infix operator +=: AssignmentPrecedence
+infix operator -=: AssignmentPrecedence

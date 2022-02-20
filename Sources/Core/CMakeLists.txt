@@ -6,6 +6,7 @@ SPDX-License-Identifier: BSD-3
 #]]
 
 add_library(swiftCore
+  AdditiveArithmetic.swift
   Assert.swift
   Bool.swift
   Builtin.swift
