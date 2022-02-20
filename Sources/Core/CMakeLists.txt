@@ -10,6 +10,7 @@ add_library(swiftCore
   Bool.swift
   Builtin.swift
   BuiltinTypes.swift
+  Collection.swift
   Comparable.swift
   CompilerProtocols.swift
   CTypes.swift
