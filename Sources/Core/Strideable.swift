@@ -8,18 +8,16 @@ public protocol Strideable: Comparable {
   func distance(to other: Self) -> Stride
   func advanced(by n: Stride) -> Self
 
-  static func _step(
-    after current: (index: Int?, value: Self),
-    from start: Self, by distance: Self.Stride
-  ) -> (index: Int?, value: Self)
+  static func _step(after current: (index: Int?, value: Self),
+                    from start: Self, by distance: Self.Stride)
+      -> (index: Int?, value: Self)
 }
 
-extension Strideable {
+public extension Strideable {
   @inlinable
-  public static func _step(
-    after current: (index: Int?, value: Self),
-    from start: Self, by distance: Self.Stride
-  ) -> (index: Int?, value: Self) {
-    (nil, current.value.advanced(by: distance))
+  static func _step(after current: (index: Int?, value: Self),
+                    from _: Self, by distance: Self.Stride)
+      -> (index: Int?, value: Self) {
+    return (nil, current.value.advanced(by: distance))
   }
 }
