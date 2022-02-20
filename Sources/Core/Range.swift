@@ -31,3 +31,11 @@ public struct Range<Bound: Comparable> {
     return lowerBound == upperBound
   }
 }
+
+extension Range: RangeExpression {
+  @inlinable
+  public func relative<C: Collection>(to _: C) -> Range<Bound>
+      where C.Index == Bound {
+    return self
+  }
+}
