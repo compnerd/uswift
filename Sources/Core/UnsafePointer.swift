@@ -10,4 +10,11 @@ public struct UnsafePointer<Pointee>: _Pointer {
   public init(_ _rawValue: Builtin.RawPointer) {
     self._rawValue = _rawValue
   }
+
+  @inlinable
+  public var pointee: Pointee {
+    @_transparent unsafeAddress {
+      return self
+    }
+  }
 }
