@@ -4,3 +4,4 @@
 --emptybraces linebreak
 --disable wrapMultilineStatementBraces
 --redundanttype explicit
+--wraparguments after-first
