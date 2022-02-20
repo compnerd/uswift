@@ -21,6 +21,7 @@ add_library(swiftCore
   Int8.swift
   Int16.swift
   Int32.swift
+  Int64.swift
   Integers.swift
   IteratorProtocol.swift
   Lifetime.swift
@@ -40,6 +41,7 @@ add_library(swiftCore
   UInt8.swift
   UInt16.swift
   UInt32.swift
+  UInt64.swift
   UnsafeMutablePointer.swift
   UnsafeMutableRawPointer.swift
   UnsafePointer.swift
