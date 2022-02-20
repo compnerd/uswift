@@ -64,6 +64,19 @@ extension UInt: AdditiveArithmetic {
   }
 }
 
+extension UInt: Numeric {
+  @_transparent
+  public static func * (_ lhs: UInt, _ rhs: UInt) -> UInt {
+    let (result, overflow) =
+        Builtin.umul_with_overflow_Word(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return UInt(result)
+  }
+}
+
 extension UInt: Comparable {
   @_transparent
   public static func < (_ lhs: UInt, _ rhs: UInt) -> Bool {
