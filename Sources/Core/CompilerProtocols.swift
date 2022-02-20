@@ -40,7 +40,8 @@ public protocol RawRepresentable {
 }
 
 public protocol _ExpressibleByBuiltinStringLiteral {
-  init(_builtinStringLiteral start: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1)
+  init(_builtinStringLiteral start: Builtin.RawPointer,
+       utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1)
 }
 
 public protocol ExpressibleByStringLiteral {
