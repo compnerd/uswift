@@ -54,7 +54,7 @@ public struct UnsafeMutableRawPointer: _Pointer {
   @_transparent
   @discardableResult
   public func bindMemory<T>(to type: T.Type, capacity count: Int)
-    -> UnsafeMutablePointer<T> {
+      -> UnsafeMutablePointer<T> {
     Builtin.bindMemory(_rawValue, count._value, type)
     return UnsafeMutablePointer<T>(_rawValue)
   }
