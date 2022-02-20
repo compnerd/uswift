@@ -29,6 +29,7 @@ add_library(swiftCore
   OptionSet.swift
   Pointer.swift
   Range.swift
+  RangeExpression.swift
   Sequence.swift
   StaticString.swift
   Swift.swift
