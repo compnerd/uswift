@@ -30,7 +30,33 @@ extension Int32: _ExpressibleByBuiltinIntegerLiteral {
   }
 }
 
-extension Int32: ExpressibleByIntegerLiteral {
+extension Int32: AdditiveArithmetic {
+  @_transparent
+  public static func + (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.sadd_with_overflow_Int32(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+
+  @_transparent
+  public static func - (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.ssub_with_overflow_Int32(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+}
+
+extension Int32: Comparable {
+  @_transparent
+  public static func < (_ lhs: Self, _ rhs: Self) -> Bool {
+    return Bool(Builtin.cmp_slt_Int32(lhs._value, rhs._value))
+  }
 }
 
 extension Int32: Equatable {
@@ -40,46 +66,17 @@ extension Int32: Equatable {
   }
 }
 
-extension Int32: AdditiveArithmetic {
-  @_transparent
-  public static func + (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    let (result, overflow) =
-        Builtin.sadd_with_overflow_Int32(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return Int32(result)
-  }
-
-  @_transparent
-  public static func - (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    let (result, overflow) =
-        Builtin.ssub_with_overflow_Int32(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return Int32(result)
-  }
+extension Int32: ExpressibleByIntegerLiteral {
 }
 
 extension Int32: Numeric {
   @_transparent
-  public static func * (_ lhs: Int32, _ rhs: Int32) -> Int32 {
+  public static func * (_ lhs: Self, _ rhs: Self) -> Self {
     let (result, overflow) =
         Builtin.smul_with_overflow_Int32(lhs._value, rhs._value, true._value)
-
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
                                .unsafeRawPointer)
-    return Int32(result)
-  }
-}
-
-extension Int32: Comparable {
-  @_transparent
-  public static func < (_ lhs: Int32, _ rhs: Int32) -> Bool {
-    return Bool(Builtin.cmp_slt_Int32(lhs._value, rhs._value))
+    return Self(result)
   }
 }

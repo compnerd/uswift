@@ -30,7 +30,33 @@ extension Int: _ExpressibleByBuiltinIntegerLiteral {
   }
 }
 
-extension Int: ExpressibleByIntegerLiteral {
+extension Int: AdditiveArithmetic {
+  @_transparent
+  public static func + (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.sadd_with_overflow_Word(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+
+  @_transparent
+  public static func - (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.ssub_with_overflow_Word(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+}
+
+extension Int: Comparable {
+  @_transparent
+  public static func < (_ lhs: Self, _ rhs: Self) -> Bool {
+    return Bool(Builtin.cmp_slt_Word(lhs._value, rhs._value))
+  }
 }
 
 extension Int: Equatable {
@@ -40,46 +66,17 @@ extension Int: Equatable {
   }
 }
 
-extension Int: AdditiveArithmetic {
-  @_transparent
-  public static func + (_ lhs: Int, _ rhs: Int) -> Int {
-    let (result, overflow) =
-        Builtin.sadd_with_overflow_Word(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return Int(result)
-  }
-
-  @_transparent
-  public static func - (_ lhs: Int, _ rhs: Int) -> Int {
-    let (result, overflow) =
-        Builtin.ssub_with_overflow_Word(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return Int(result)
-  }
+extension Int: ExpressibleByIntegerLiteral {
 }
 
 extension Int: Numeric {
   @_transparent
-  public static func * (_ lhs: Int, _ rhs: Int) -> Int {
+  public static func * (_ lhs: Self, _ rhs: Self) -> Self {
     let (result, overflow) =
         Builtin.smul_with_overflow_Word(lhs._value, rhs._value, true._value)
-
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
                                .unsafeRawPointer)
-    return Int(result)
-  }
-}
-
-extension Int: Comparable {
-  @_transparent
-  public static func < (_ lhs: Int, _ rhs: Int) -> Bool {
-    return Bool(Builtin.cmp_slt_Word(lhs._value, rhs._value))
+    return Self(result)
   }
 }
