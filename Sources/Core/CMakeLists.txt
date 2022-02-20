@@ -7,6 +7,7 @@ add_library(swiftCore
   AdditiveArithmetic.swift
   Assert.swift
   BidirectionalCollection.swift
+  BinaryInteger.swift
   Bool.swift
   Builtin.swift
   BuiltinTypes.swift
@@ -33,9 +34,7 @@ add_library(swiftCore
   Range.swift
   RangeExpression.swift
   Sequence.swift
-  SignedNumeric.swift
   StaticString.swift
-  Strideable.swift
   Swift.swift
   UInt.swift
   UInt8.swift
