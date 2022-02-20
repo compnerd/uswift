@@ -30,7 +30,33 @@ extension UInt: _ExpressibleByBuiltinIntegerLiteral {
   }
 }
 
-extension UInt: ExpressibleByIntegerLiteral {
+extension UInt: AdditiveArithmetic {
+  @_transparent
+  public static func + (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.uadd_with_overflow_Word(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+
+  @_transparent
+  public static func - (_ lhs: Self, _ rhs: Self) -> Self {
+    let (result, overflow) =
+        Builtin.usub_with_overflow_Word(lhs._value, rhs._value, true._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Self(result)
+  }
+}
+
+extension UInt: Comparable {
+  @_transparent
+  public static func < (_ lhs: Self, _ rhs: Self) -> Bool {
+    return Bool(Builtin.cmp_ult_Word(lhs._value, rhs._value))
+  }
 }
 
 extension UInt: Equatable {
@@ -40,46 +66,17 @@ extension UInt: Equatable {
   }
 }
 
-extension UInt: AdditiveArithmetic {
-  @_transparent
-  public static func + (_ lhs: UInt, _ rhs: UInt) -> UInt {
-    let (result, overflow) =
-        Builtin.uadd_with_overflow_Word(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return UInt(result)
-  }
-
-  @_transparent
-  public static func - (_ lhs: UInt, _ rhs: UInt) -> UInt {
-    let (result, overflow) =
-        Builtin.usub_with_overflow_Word(lhs._value, rhs._value, true._value)
-
-    Builtin.condfail_message(overflow,
-                             StaticString("arithmetic overflow")
-                               .unsafeRawPointer)
-    return UInt(result)
-  }
+extension UInt: ExpressibleByIntegerLiteral {
 }
 
 extension UInt: Numeric {
   @_transparent
-  public static func * (_ lhs: UInt, _ rhs: UInt) -> UInt {
+  public static func * (_ lhs: Self, _ rhs: Self) -> Self {
     let (result, overflow) =
         Builtin.umul_with_overflow_Word(lhs._value, rhs._value, true._value)
-
     Builtin.condfail_message(overflow,
                              StaticString("arithmetic overflow")
                                .unsafeRawPointer)
-    return UInt(result)
-  }
-}
-
-extension UInt: Comparable {
-  @_transparent
-  public static func < (_ lhs: UInt, _ rhs: UInt) -> Bool {
-    return Bool(Builtin.cmp_ult_Word(lhs._value, rhs._value))
+    return Self(result)
   }
 }
