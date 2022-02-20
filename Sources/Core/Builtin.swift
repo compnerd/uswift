@@ -5,5 +5,5 @@
 @inlinable
 @inline(__always)
 internal func minAllocationAlignment() -> Int {
-  16
+  return 16
 }

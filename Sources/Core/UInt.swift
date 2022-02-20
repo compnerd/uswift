@@ -13,12 +13,12 @@ public struct UInt {
   }
 
   @_transparent
-  public static func &= (lhs: inout Self, rhs: Self) {
+  public static func &= (_ lhs: inout Self, _ rhs: Self) {
     lhs = lhs & rhs
   }
 
   @_transparent
-  public static func & (lhs: Self, rhs: Self) -> Self {
+  public static func & (_ lhs: Self, _ rhs: Self) -> Self {
     return Self(Builtin.and_Word(lhs._value, rhs._value))
   }
 }
