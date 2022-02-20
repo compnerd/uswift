@@ -11,4 +11,7 @@ SWIFT_RUNTIME_ABI
 HeapObject *swift_retain(HeapObject *object) { return NULL; }
 
 SWIFT_RUNTIME_ABI
+void *swift_slowAlloc(size_t bytes, size_t alignMask) {}
+
+SWIFT_RUNTIME_ABI
 void swift_slowDealloc(void *ptr, size_t bytes, size_t alignMask) {}
