@@ -1,3 +1,37 @@
 {
-  "editor.rulers": [80]
+  "cmake.configureOnOpen": false,
+  "commentAnchors.tags.list": [
+    {
+      "tag": "MARK",
+      "iconColor": "default",
+      "highlightColor": "#A8C023",
+      "scope": "file",
+    },
+    {
+      "tag": "TODO",
+      "iconColor": "blue",
+      "highlightColor": "#3ea8ff",
+      "scope": "workspace",
+    },
+    {
+      "tag": "FIXME",
+      "iconColor": "red",
+      "highlightColor": "#f44336",
+      "scope": "workspace",
+    },
+    {
+      "tag": "NOTE",
+      "iconColor": "orange",
+      "highlightColor": "#ffb300",
+      "scope": "file",
+    },
+  ],
+  "editor.rulers": [80],
+  "files.exclude" : {
+    ".git": true,
+    ".build": true,
+    "**/.*.sw?": true,
+    "**/.DS_Store": true,
+    "out": true,
+  },
 }
