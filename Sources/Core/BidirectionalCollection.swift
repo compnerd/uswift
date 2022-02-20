@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: BSD-3
 
 public protocol BidirectionalCollection: Collection
-  where SubSequence: BidirectionalCollection, Indices: BidirectionalCollection {
+    where SubSequence: BidirectionalCollection, Indices: BidirectionalCollection {
   override var indices: Indices { get }
 
   override subscript(_: Range<Index>) -> SubSequence { get }
