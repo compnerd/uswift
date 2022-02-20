@@ -40,6 +40,30 @@ extension Int: Equatable {
   }
 }
 
+extension Int: AdditiveArithmetic {
+  @_transparent
+  public static func + (_ lhs: Int, _ rhs: Int) -> Int {
+    let (result, overflow) =
+        Builtin.sadd_with_overflow_Word(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Int(result)
+  }
+
+  @_transparent
+  public static func - (_ lhs: Int, _ rhs: Int) -> Int {
+    let (result, overflow) =
+        Builtin.ssub_with_overflow_Word(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return Int(result)
+  }
+}
+
 extension Int: Comparable {
   @_transparent
   public static func < (_ lhs: Int, _ rhs: Int) -> Bool {

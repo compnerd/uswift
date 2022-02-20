@@ -40,6 +40,30 @@ extension UInt32: Equatable {
   }
 }
 
+extension UInt32: AdditiveArithmetic {
+  @_transparent
+  public static func + (_ lhs: UInt32, _ rhs: UInt32) -> UInt32 {
+    let (result, overflow) =
+        Builtin.uadd_with_overflow_Int32(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return UInt32(result)
+  }
+
+  @_transparent
+  public static func - (_ lhs: UInt32, _ rhs: UInt32) -> UInt32 {
+    let (result, overflow) =
+        Builtin.usub_with_overflow_Int32(lhs._value, rhs._value, true._value)
+
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                               .unsafeRawPointer)
+    return UInt32(result)
+  }
+}
+
 extension UInt32: Comparable {
   @_transparent
   public static func < (_ lhs: UInt32, _ rhs: UInt32) -> Bool {
