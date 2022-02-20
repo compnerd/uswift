@@ -9,6 +9,7 @@ add_library(swiftCore
   Assert.swift
   Bool.swift
   Builtin.swift
+  BuiltinTypes.swift
   Comparable.swift
   CompilerProtocols.swift
   CTypes.swift
@@ -18,13 +19,13 @@ add_library(swiftCore
   Int32.swift
   Integers.swift
   IteratorProtocol.swift
-  LifetimeManager.swift
+  Lifetime.swift
   Never.swift
   OpaquePointer.swift
+  Operators.swift
   Optional.swift
   OptionSet.swift
   Pointer.swift
-  Policy.swift
   Sequence.swift
   StaticString.swift
   Swift.swift
