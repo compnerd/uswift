@@ -35,6 +35,7 @@ add_library(swiftCore
   Sequence.swift
   SignedNumeric.swift
   StaticString.swift
+  Strideable.swift
   Swift.swift
   UInt.swift
   UInt8.swift

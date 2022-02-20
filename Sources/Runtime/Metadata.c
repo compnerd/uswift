@@ -42,3 +42,13 @@ void swift_initStructMetadata(StructMetadata *self, StructLayoutFlags flags,
                               size_t numFields,
                               const TypeLayout * const *fieldTypes,
                               uint32_t *fieldOffsets) {}
+
+SWIFT_RUNTIME_ABI
+const TypeMetadata *
+swift_getTypeByMangledNameInContextInMetadataState(size_t metadataState,
+                                                   const char *typeNameStart, 
+                                                   size_t typeNameLength,
+                                                   const void *context, 
+                                                   const void *const *genericArgs) {
+  return NULL;
+}
