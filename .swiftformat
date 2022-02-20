@@ -5,3 +5,4 @@
 --disable wrapMultilineStatementBraces
 --redundanttype explicit
 --wraparguments after-first
+--extensionacl on-declarations
