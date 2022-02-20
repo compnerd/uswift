@@ -34,7 +34,9 @@ add_library(swiftCore
   Range.swift
   RangeExpression.swift
   Sequence.swift
+  SignedNumeric.swift
   StaticString.swift
+  Strideable.swift
   Swift.swift
   UInt.swift
   UInt8.swift

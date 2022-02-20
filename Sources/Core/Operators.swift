@@ -91,12 +91,15 @@ infix operator /=: AssignmentPrecedence
 infix operator %=: AssignmentPrecedence
 infix operator |=: AssignmentPrecedence
 infix operator ^=: AssignmentPrecedence
+
 infix operator <<=: AssignmentPrecedence
-infix operator &<<=: AssignmentPrecedence
 infix operator >>=: AssignmentPrecedence
+
+infix operator &<<=: AssignmentPrecedence
 infix operator &>>=: AssignmentPrecedence
 
 infix operator <<: BitwiseShiftPrecedence
-infix operator &<<: BitwiseShiftPrecedence
 infix operator >>: BitwiseShiftPrecedence
+
+infix operator &<<: BitwiseShiftPrecedence
 infix operator &>>: BitwiseShiftPrecedence
