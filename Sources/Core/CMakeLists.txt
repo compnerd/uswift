@@ -7,6 +7,7 @@ add_library(swiftCore
   AdditiveArithmetic.swift
   Assert.swift
   BidirectionalCollection.swift
+  BinaryInteger.swift
   Bool.swift
   Builtin.swift
   BuiltinTypes.swift
