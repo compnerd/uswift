@@ -23,7 +23,7 @@ jobs:
             tag: 5.6-DEVELOPMENT-SNAPSHOT-2022-02-11-a
 
           - branch: development
-            tag: DEVELOPMENT-SNAPSHOT-2021-09-18-a
+            tag: DEVELOPMENT-SNAPSHOT-2022-02-22-a
 
     steps:
       - name: Install Swift ${{ matrix.tag }}
