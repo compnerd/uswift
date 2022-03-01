@@ -79,3 +79,23 @@ extension Int64: Numeric {
     return Self(result)
   }
 }
+
+extension Int64: FixedWidthInteger {
+  @_transparent
+  public func addingReportingOverflow(_ other: Int64)
+      -> (partialValue: Int64, overflow: Bool) {
+    let (newStorage, overflow) =
+      Builtin.sadd_with_overflow_Int64(_value, other._value, false._value)
+
+    return (partialValue: Int64(newStorage), overflow: Bool(overflow))
+  }
+
+  @_transparent
+  public func subtractingReportingOverflow(_ other: Int64)
+      -> (partialValue: Int64, overflow: Bool) {
+    let (newStorage, overflow) =
+      Builtin.ssub_with_overflow_Int64(_value, other._value, false._value)
+
+    return (partialValue: Int64(newStorage), overflow: Bool(overflow))
+  }
+}
