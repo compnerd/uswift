@@ -80,6 +80,28 @@ extension Int16: Numeric {
   }
 }
 
+extension Int16: BinaryInteger {
+  @_transparent
+  public static func /(lhs: Int16, rhs: Int16) -> Int16 {
+    precondition(rhs != (0 as Int16), "Division by zero")
+
+    let (result, overflow) =
+        (Builtin.sdiv_Int16(lhs._value, rhs._value), false._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                                .unsafeRawPointer)
+    return Int16(result)
+  }  
+  
+  @_transparent
+  public static func %(lhs: Int16, rhs: Int16) -> Int16 {
+    precondition(rhs == (0 as Int16), 
+                 "Division by zero in remainder operation")
+
+    return Int16(Builtin.srem_Int16(lhs._value, rhs._value))
+  }
+}
+
 extension Int16: FixedWidthInteger {
   @_transparent
   public func addingReportingOverflow(_ other: Int16)

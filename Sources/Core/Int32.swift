@@ -80,6 +80,28 @@ extension Int32: Numeric {
   }
 }
 
+extension Int32: BinaryInteger {
+  @_transparent
+  public static func /(lhs: Int32, rhs: Int32) -> Int32 {
+    precondition(rhs != (0 as Int32), "Division by zero")
+
+    let (result, overflow) =
+        (Builtin.sdiv_Int32(lhs._value, rhs._value), false._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                                .unsafeRawPointer)
+    return Int32(result)
+  }  
+  
+  @_transparent
+  public static func %(lhs: Int32, rhs: Int32) -> Int32 {
+    precondition(rhs == (0 as Int32), 
+                 "Division by zero in remainder operation")
+
+    return Int32(Builtin.srem_Int32(lhs._value, rhs._value))
+  }
+}
+
 extension Int32: FixedWidthInteger {
   @_transparent
   public func addingReportingOverflow(_ other: Int32)
