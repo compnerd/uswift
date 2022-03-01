@@ -7,3 +7,24 @@ public protocol FixedWidthInteger {
   func subtractingReportingOverflow(_ rhs: Self)
       -> (partialValue: Self, overflow: Bool)
 }
+
+extension FixedWidthInteger {@_transparent
+  public static func &+ (lhs: Self, rhs: Self) -> Self {
+    return lhs.addingReportingOverflow(rhs).partialValue
+  }
+
+  @_transparent
+  public static func &+= (lhs: inout Self, rhs: Self) {
+    lhs = lhs &+ rhs
+  }
+
+  @_transparent
+  public static func &- (lhs: Self, rhs: Self) -> Self {
+    return lhs.subtractingReportingOverflow(rhs).partialValue
+  }
+
+  @_transparent
+  public static func &-= (lhs: inout Self, rhs: Self) {
+    lhs = lhs &- rhs
+  }
+}
