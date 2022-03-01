@@ -8,7 +8,8 @@ public protocol FixedWidthInteger {
       -> (partialValue: Self, overflow: Bool)
 }
 
-extension FixedWidthInteger {@_transparent
+extension FixedWidthInteger {
+  @_transparent
   public static func &+ (lhs: Self, rhs: Self) -> Self {
     return lhs.addingReportingOverflow(rhs).partialValue
   }
