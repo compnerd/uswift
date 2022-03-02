@@ -85,7 +85,7 @@ extension Int: FixedWidthInteger {
   public func addingReportingOverflow(_ other: Int)
       -> (partialValue: Int, overflow: Bool) {
     let (newStorage, overflow) =
-      Builtin.sadd_with_overflow_Word(_value, other._value, false._value)
+        Builtin.sadd_with_overflow_Word(_value, other._value, false._value)
 
     return (partialValue: Int(newStorage), overflow: Bool(overflow))
   }
@@ -94,7 +94,7 @@ extension Int: FixedWidthInteger {
   public func subtractingReportingOverflow(_ other: Int)
       -> (partialValue: Int, overflow: Bool) {
     let (newStorage, overflow) =
-      Builtin.ssub_with_overflow_Word(_value, other._value, false._value)
+        Builtin.ssub_with_overflow_Word(_value, other._value, false._value)
 
     return (partialValue: Int(newStorage), overflow: Bool(overflow))
   }

@@ -85,7 +85,7 @@ extension UInt64: FixedWidthInteger {
   public func addingReportingOverflow(_ other: UInt64)
       -> (partialValue: UInt64, overflow: Bool) {
     let (newStorage, overflow) =
-      Builtin.uadd_with_overflow_Int64(_value, other._value, false._value)
+        Builtin.uadd_with_overflow_Int64(_value, other._value, false._value)
 
     return (partialValue: UInt64(newStorage), overflow: Bool(overflow))
   }
@@ -94,7 +94,7 @@ extension UInt64: FixedWidthInteger {
   public func subtractingReportingOverflow(_ other: UInt64)
       -> (partialValue: UInt64, overflow: Bool) {
     let (newStorage, overflow) =
-      Builtin.usub_with_overflow_Int64(_value, other._value, false._value)
+        Builtin.usub_with_overflow_Int64(_value, other._value, false._value)
 
     return (partialValue: UInt64(newStorage), overflow: Bool(overflow))
   }
