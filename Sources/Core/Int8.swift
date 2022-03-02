@@ -79,3 +79,23 @@ extension Int8: Numeric {
     return Self(result)
   }
 }
+
+extension Int8: FixedWidthInteger {
+  @_transparent
+  public func addingReportingOverflow(_ other: Int8)
+      -> (partialValue: Int8, overflow: Bool) {
+    let (newStorage, overflow) =
+        Builtin.sadd_with_overflow_Int8(_value, other._value, false._value)
+
+    return (partialValue: Int8(newStorage), overflow: Bool(overflow))
+  }
+
+  @_transparent
+  public func subtractingReportingOverflow(_ other: Int8)
+      -> (partialValue: Int8, overflow: Bool) {
+    let (newStorage, overflow) =
+        Builtin.ssub_with_overflow_Int8(_value, other._value, false._value)
+
+    return (partialValue: Int8(newStorage), overflow: Bool(overflow))
+  }
+}

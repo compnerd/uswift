@@ -16,6 +16,7 @@ add_library(swiftCore
   CompilerProtocols.swift
   CTypes.swift
   Equatable.swift
+  FixedWidthInteger.swift
   Int.swift
   Int8.swift
   Int16.swift

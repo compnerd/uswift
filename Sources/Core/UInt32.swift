@@ -79,3 +79,23 @@ extension UInt32: Numeric {
     return Self(result)
   }
 }
+
+extension UInt32: FixedWidthInteger {
+  @_transparent
+  public func addingReportingOverflow(_ other: UInt32)
+      -> (partialValue: UInt32, overflow: Bool) {
+    let (newStorage, overflow) =
+        Builtin.uadd_with_overflow_Int32(_value, other._value, false._value)
+
+    return (partialValue: UInt32(newStorage), overflow: Bool(overflow))
+  }
+
+  @_transparent
+  public func subtractingReportingOverflow(_ other: UInt32)
+      -> (partialValue: UInt32, overflow: Bool) {
+    let (newStorage, overflow) =
+        Builtin.usub_with_overflow_Int32(_value, other._value, false._value)
+
+    return (partialValue: UInt32(newStorage), overflow: Bool(overflow))
+  }
+}
