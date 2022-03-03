@@ -50,6 +50,7 @@ add_library(swiftCore
   UnsafeRawPointer.swift
   Void.swift)
 set_target_properties(swiftCore PROPERTIES
+  LINKER_LANGUAGE C
   Swift_MODULE_NAME Swift)
 target_compile_options(swiftCore PRIVATE
   -parse-stdlib
@@ -58,4 +59,4 @@ target_compile_options(swiftCore PRIVATE
 target_link_libraries(swiftCore PRIVATE
   swiftRuntime)
 target_link_options(swiftCore PRIVATE
-  "SHELL:-Xclang-linker -nostdlib")
+  -nostdlib)
