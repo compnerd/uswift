@@ -95,7 +95,7 @@ extension UInt64: BinaryInteger {
   
   @_transparent
   public static func % (_ lhs: UInt64, _ rhs: UInt64) -> UInt64 {
-    precondition(rhs == (0 as UInt64), 
+    precondition(rhs != (0 as UInt64), 
                  "Division by zero in remainder operation")
 
     return UInt64(Builtin.urem_Int64(lhs._value, rhs._value))

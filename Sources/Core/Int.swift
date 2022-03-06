@@ -95,7 +95,7 @@ extension Int: BinaryInteger {
   
   @_transparent
   public static func % (_ lhs: Int, _ rhs: Int) -> Int {
-    precondition(rhs == (0 as Int), 
+    precondition(rhs != (0 as Int), 
                  "Division by zero in remainder operation")
 
     return Int(Builtin.srem_Word(lhs._value, rhs._value))

@@ -95,7 +95,7 @@ extension UInt8: BinaryInteger {
   
   @_transparent
   public static func % (_ lhs: UInt8, _ rhs: UInt8) -> UInt8 {
-    precondition(rhs == (0 as UInt8), 
+    precondition(rhs != (0 as UInt8), 
                  "Division by zero in remainder operation")
 
     return UInt8(Builtin.urem_Int8(lhs._value, rhs._value))

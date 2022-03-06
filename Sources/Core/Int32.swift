@@ -95,7 +95,7 @@ extension Int32: BinaryInteger {
   
   @_transparent
   public static func % (_ lhs: Int32, _ rhs: Int32) -> Int32 {
-    precondition(rhs == (0 as Int32), 
+    precondition(rhs != (0 as Int32), 
                  "Division by zero in remainder operation")
 
     return Int32(Builtin.srem_Int32(lhs._value, rhs._value))

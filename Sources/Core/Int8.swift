@@ -95,7 +95,7 @@ extension Int8: BinaryInteger {
   
   @_transparent
   public static func % (_ lhs: Int8, _ rhs: Int8) -> Int8 {
-    precondition(rhs == (0 as Int8), 
+    precondition(rhs != (0 as Int8), 
                  "Division by zero in remainder operation")
 
     return Int8(Builtin.srem_Int8(lhs._value, rhs._value))
