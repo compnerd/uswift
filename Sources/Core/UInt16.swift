@@ -80,6 +80,28 @@ extension UInt16: Numeric {
   }
 }
 
+extension UInt16: BinaryInteger {
+  @_transparent
+  public static func / (_ lhs: UInt16, _ rhs: UInt16) -> UInt16 {
+    precondition(rhs != (0 as UInt16), "Division by zero")
+
+    let (result, overflow) =
+        (Builtin.udiv_Int16(lhs._value, rhs._value), false._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                                .unsafeRawPointer)
+    return UInt16(result)
+  }  
+  
+  @_transparent
+  public static func % (_ lhs: UInt16, _ rhs: UInt16) -> UInt16 {
+    precondition(rhs != (0 as UInt16), 
+                 "Division by zero in remainder operation")
+
+    return UInt16(Builtin.urem_Int16(lhs._value, rhs._value))
+  }
+}
+
 extension UInt16: FixedWidthInteger {
   @_transparent
   public func addingReportingOverflow(_ other: UInt16)

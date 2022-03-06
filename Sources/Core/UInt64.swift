@@ -80,6 +80,28 @@ extension UInt64: Numeric {
   }
 }
 
+extension UInt64: BinaryInteger {
+  @_transparent
+  public static func / (_ lhs: UInt64, _ rhs: UInt64) -> UInt64 {
+    precondition(rhs != (0 as UInt64), "Division by zero")
+
+    let (result, overflow) =
+        (Builtin.udiv_Int64(lhs._value, rhs._value), false._value)
+    Builtin.condfail_message(overflow,
+                             StaticString("arithmetic overflow")
+                                .unsafeRawPointer)
+    return UInt64(result)
+  }  
+  
+  @_transparent
+  public static func % (_ lhs: UInt64, _ rhs: UInt64) -> UInt64 {
+    precondition(rhs != (0 as UInt64), 
+                 "Division by zero in remainder operation")
+
+    return UInt64(Builtin.urem_Int64(lhs._value, rhs._value))
+  }
+}
+
 extension UInt64: FixedWidthInteger {
   @_transparent
   public func addingReportingOverflow(_ other: UInt64)
