@@ -82,7 +82,7 @@ extension Int: Numeric {
 
 extension Int: BinaryInteger {
   @_transparent
-  public static func /(lhs: Int, rhs: Int) -> Int {
+  public static func / (_ lhs: Int, _ rhs: Int) -> Int {
     precondition(rhs != (0 as Int), "Division by zero")
 
     let (result, overflow) =
@@ -94,7 +94,7 @@ extension Int: BinaryInteger {
   }  
   
   @_transparent
-  public static func %(lhs: Int, rhs: Int) -> Int {
+  public static func % (_ lhs: Int, _ rhs: Int) -> Int {
     precondition(rhs == (0 as Int), 
                  "Division by zero in remainder operation")
 

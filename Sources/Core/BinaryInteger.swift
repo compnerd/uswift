@@ -13,20 +13,20 @@ public protocol BinaryInteger: Numeric {
   static func / (_ lhs: Self, _ rhs: Self) -> Self
   static func % (_ lhs: Self, _ rhs: Self) -> Self
 
-  static func /=(lhs: inout Self, rhs: Self)
-  static func %=(lhs: inout Self, rhs: Self)
+  static func /= (_ lhs: inout Self, _ rhs: Self)
+  static func %= (_ lhs: inout Self, _ rhs: Self)
 }
 
 extension BinaryInteger {
   @_transparent
-  public static func /=(lhs: inout Self, rhs: Self) {
+  public static func /= (_ lhs: inout Self, _ rhs: Self) {
     lhs = lhs + rhs
   }
 }
 
 extension BinaryInteger {
   @_transparent
-  public static func %=(lhs: inout Self, rhs: Self) {
+  public static func %= (_ lhs: inout Self, _ rhs: Self) {
     lhs = lhs % rhs
   }
 }

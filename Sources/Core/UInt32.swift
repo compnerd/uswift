@@ -82,7 +82,7 @@ extension UInt32: Numeric {
 
 extension UInt32: BinaryInteger {
   @_transparent
-  public static func /(lhs: UInt32, rhs: UInt32) -> UInt32 {
+  public static func / (_ lhs: UInt32, _ rhs: UInt32) -> UInt32 {
     precondition(rhs != (0 as UInt32), "Division by zero")
 
     let (result, overflow) =
@@ -94,7 +94,7 @@ extension UInt32: BinaryInteger {
   }  
   
   @_transparent
-  public static func %(lhs: UInt32, rhs: UInt32) -> UInt32 {
+  public static func % (_ lhs: UInt32, _ rhs: UInt32) -> UInt32 {
     precondition(rhs == (0 as UInt32), 
                  "Division by zero in remainder operation")
 
