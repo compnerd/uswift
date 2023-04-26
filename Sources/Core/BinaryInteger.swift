@@ -20,7 +20,7 @@ public protocol BinaryInteger: Numeric {
 extension BinaryInteger {
   @_transparent
   public static func /= (_ lhs: inout Self, _ rhs: Self) {
-    lhs = lhs + rhs
+    lhs = lhs / rhs
   }
 }
 
