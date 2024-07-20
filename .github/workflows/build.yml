@@ -32,7 +32,7 @@ jobs:
           branch: ${{ matrix.branch }}
           tag: ${{ matrix.tag }}
 
-      - uses: seanmiddleditch/gha-setup-ninja@master
+      - uses: compnerd/gha-setup-vsdevenv@main
 
       - uses: actions/checkout@v2
 
