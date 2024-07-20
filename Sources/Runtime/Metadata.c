@@ -52,3 +52,13 @@ swift_getTypeByMangledNameInContextInMetadataState(size_t metadataState,
                                                    const void *const *genericArgs) {
   return NULL;
 }
+
+SWIFT_RUNTIME_ABI
+const Metadata *
+swift_getTypeByMangledNameInContextInMetadataState2(size_t metadataState,
+                                                    const char *typeNameStart,
+                                                    size_t typeNameLength,
+                                                    const void *context,
+                                                    const void * const *genericArgs) {
+    return NULL;
+}
