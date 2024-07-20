@@ -32,6 +32,8 @@ jobs:
           branch: ${{ matrix.branch }}
           tag: ${{ matrix.tag }}
 
+      - uses: compnerd/gha-setup-vsdevenv@main
+
       - uses: actions/checkout@v2
 
       - name: configure
