@@ -53,8 +53,11 @@ set_target_properties(swiftCore PROPERTIES
   Swift_MODULE_NAME Swift)
 target_compile_options(swiftCore PRIVATE
   -parse-stdlib
-  -disallow-use-new-driver
   "SHELL:-Xfrontend -enable-resilience")
+if(CMAKE_Swift_COMPILER_VERSION VERSION_LESS 5.10)
+  target_compile_options(swiftCore PRIVATE
+    -disallow-use-new-driver)
+endif()
 target_link_libraries(swiftCore PRIVATE
   swiftRuntime)
 target_link_options(swiftCore PRIVATE
