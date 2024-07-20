@@ -32,6 +32,8 @@ jobs:
           branch: ${{ matrix.branch }}
           tag: ${{ matrix.tag }}
 
+      - uses: seanmiddleditch/gha-setup-ninja@master
+
       - uses: actions/checkout@v2
 
       - name: configure
